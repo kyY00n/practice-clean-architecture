@@ -1,4 +1,4 @@
-package model
+package com.karrot.clean.adapter.model
 
 import com.karrot.clean.core.Product
 
