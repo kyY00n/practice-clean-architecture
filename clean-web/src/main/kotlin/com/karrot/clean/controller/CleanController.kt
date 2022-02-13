@@ -15,8 +15,9 @@ class CleanController(
     private val getProductUseCase: GetProductUseCase,
 ) {
     @GetMapping("/{productId}")
-    fun product(@PathVariable productId: String) : ProductResponse {
-        val product = getProductUseCase.run(productId) ?: throw Exception("해당 id의 product가 없습니다.")
+    fun product(@PathVariable productId: String): ProductResponse {
+        val product =
+            getProductUseCase.run(GetProductUseCase.Input(productId)) ?: throw Exception("해당 id의 Product가 없습니다.")
         return ProductResponse(product.id, product.name)
     }
 }
